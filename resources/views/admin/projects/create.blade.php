@@ -11,10 +11,25 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 <div class="mb-5">
-                    <label for="exampleFormControlInput1" class="form-label">
+                    <label for="title" class="form-label">
                         Title
                     </label>
                     <input type="text" class="form-control" id="title" placeholder="Insert your project's title" name="title"  value="{{ old('title', '') }}">
+                </div>
+                @error('type_id')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                <div class="mb-5">
+                    <label for="type_id" class="form-label">
+                        Title
+                    </label>
+                    <select class='form-select' name="type_id" id="type_id">
+                        @foreach ($types as $type)
+                            <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>
+                                {{ $type->name }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 @error('image')

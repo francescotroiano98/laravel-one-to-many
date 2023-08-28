@@ -13,9 +13,11 @@ class Project extends Model
     
     protected $fillable = [
         'title',
+        'type_id',
         'content',
         'image',
         'slug'
+        
     ];
 
     public function Type(){
